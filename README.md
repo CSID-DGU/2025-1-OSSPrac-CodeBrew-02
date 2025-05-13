@@ -13,3 +13,6 @@
 
 ### Team Main Page (index)
 ![image](https://github.com/user-attachments/assets/ad6da716-153d-486e-b372-008d6beeb4a8)
+
+### Team Information Page (result)
+![image](https://github.com/user-attachments/assets/2c56b231-7be2-4cd0-a790-d43872746438)
