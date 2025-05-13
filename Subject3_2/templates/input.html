@@ -183,8 +183,8 @@
 
                 <p class="bold">Role</p>
                 <div class="radio-container">
-                    <input type="radio" name="Role[${personCount}]" value="TeamLeader">팀장
-                    <input type="radio" name="Role[${personCount}]" value="TeamMember">팀원
+                    <input type="radio" name="Role[0]" value="TeamLeader">팀장
+                    <input type="radio" name="Role[0]" value="TeamMember">팀원
                 </div>
 
                 <p class="bold">Name <input type="text" name="Name[]" required></p>
@@ -192,8 +192,8 @@
                 
                 <p class="bold">Gender</p>
                 <div class="radio-container">
-                    <input type="radio" name="Gender[${personCount}]" value="Male"> Male
-                    <input type="radio" name="Gender[${personCount}]" value="Female"> Female
+                    <input type="radio" name="Gender[0]" value="Male"> Male
+                    <input type="radio" name="Gender[0]" value="Female"> Female
                 </div>
 
                 <p class="bold">Major <input type="text" name="Major[]" required></p>
@@ -273,10 +273,10 @@
 
                 <p style="font-weight: bold;">Programming Languages</p>
                 <div style="display: flex; gap: 15px;">
-                    <label style="font-weight: normal;"><input type="checkbox" value="Python" name="language[0][]"/>Python</label>
-                    <label style="font-weight: normal;"><input type="checkbox" value="Java" name="language[0][]"/>Java</label>
-                    <label style="font-weight: normal;"><input type="checkbox" value="HTML" name="language[0][]"/>HTML</label>
-                    <label style="font-weight: normal;"><input type="checkbox" value="C++" name="language[0][]"/>C++</label>
+                    <label style="font-weight: normal;"><input type="checkbox" value="Python" name="language[${personCount}][]"/>Python</label>
+                    <label style="font-weight: normal;"><input type="checkbox" value="Java" name="language[${personCount}][]"/>Java</label>
+                    <label style="font-weight: normal;"><input type="checkbox" value="HTML" name="language[${personCount}][]"/>HTML</label>
+                    <label style="font-weight: normal;"><input type="checkbox" value="C++" name="language[${personCount}][]"/>C++</label>
                 </div>
 
                 <p class="bold">Phone <input type="text" name="Phone[]" required></p>
