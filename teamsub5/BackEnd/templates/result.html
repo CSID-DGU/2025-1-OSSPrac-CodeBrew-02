@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>팀 구성원 정보 출력</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap"rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #007BFF;
+            --text-color: #333;
+            --background-color: #f4f4f9;
+            --footer-color: #666;
+            --hover-color: #0056b3;
+            --card-background: #ffffff;
+            --card-shadow: rgba(0, 0, 0, 0.1);
+            --card-border-radius: 12px;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            color: #007BF;
+            padding: 40px 10px;
+            text-align: center;
+            margin-bottom: 0px;
+        }
+
+        header h1 {
+            margin: 10px;
+            color: #007BFF;
+            font-size: 3em;
+            font-weight: 600;
+        }
+
+        header p {
+            margin: 10px 0 0;
+            font-size: 1.2em;
+            font-weight: 400;
+        }
+
+        main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 40px auto;
+            max-width: 900px;
+        }
+
+        main h2 {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 0px;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: nowrap; /* 한 줄에 카드 고정 */
+            gap: 20px;
+            justify-content: center;
+            margin-top: 20px;
+            overflow-x: auto; /* 카드가 넘칠 경우 스크롤 가능 */
+        }
+
+        .student-block {
+            background-color: var(--card-background);
+            color: var(--text-color);
+            padding: 15px;
+            border-radius: var(--card-border-radius);
+            width: 280px;
+            text-align: center;
+            box-shadow: 0 6px 12px var(--card-shadow);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            overflow: hidden;
+            flex: 0 0 auto; /* 각 카드의 너비를 고정 */
+            height: auto; /* 높이를 자동으로 설정 */
+            margin-top: 0px
+        }
+        .student-block h3 {
+            margin-bottom: 5px; /* h3 요소와 h2 요소 간의 간격을 줄임 */
+        }
+
+        .student-block h2 {
+            margin-top: 5px; /* h2 요소와 h3 요소 간의 간격을 줄임 */
+        }
+        .student-block:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .student-block img {
+            width: 80%;
+            height: auto;
+            border-radius: var(--card-border-radius);
+            margin: 5px;
+        } 
+
+        .student-block p {
+            color: #333;
+            margin: 5px 0;
+            font-size: 1rem;
+        }
+
+        footer {
+            padding: 20px;
+            text-align: center;
+            background-color: var(--background-color);
+            color: var(--footer-color);
+            font-size: 0.9rem;
+        }
+
+        footer a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        footer a:hover {
+            color: var(--hover-color);
+        }
+        .main-button {
+            padding-top: 20px; /* 여백 추가 */
+            display: inline-block;
+            padding: 8px 16px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: white;
+            background: #007BFF;
+            border: none;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            align-items: center;
+            margin: 0 auto; /* 가운데 정렬 */
+            display: block; /* block으로 설정하여 중앙 정렬 */
+            width: 200px;
+        }
+
+        .main-button:hover {
+            background:#0056b3;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>CodeBrew팀 구성원 정보</h1>
+        <a href="/" class="main-button">Back to Main Pages</a>
+    </header>
+
+    <main>
+        <div class="container">
+            {% for name, role, student_number, gender, major, language, email, phone, mbti, selected_picture in result %}
+                <div class="student-block">
+                    <h3>{{ role }}</h3>
+                    <h2>{{ name }}</h2>
+                    <img src="{{ selected_picture }}" alt="Student Profile Picture">
+                    <p><strong>학번:</strong> {{ student_number }}</p>
+                    <p><strong>성별:</strong> {{ gender }}</p>
+                    <p><strong>전공:</strong> {{ major }}</p>
+                    <p><strong>프로그래밍 언어:</strong> {{ language }}</p>
+                    <p><strong>이메일:</strong> {{ email }}</p>
+                    <p><strong>전화번호:</strong> {{ phone }}</p>
+                    <p><strong>MBTI:</strong> {{ mbti }}</p>
+                </div>
+            {% endfor %}
+        </div>
+    </main>
+        
+    <footer>
+        <p>&copy; 2025 CodeBrew. All rights reserved.</p>
+        <p>팀에 대한 자세한 정보를 보려면 <a href="javascript:void(0);" onclick="window.open('https://github.com/CSID-DGU/2025-1-OSSPrac-CodeBrew-02', 'GitHubPage', 'width=600,height=600,top=100,left=100')">GitHub</a>를 방문하세요.</p>
+        </footer>
+</body>
+</html>
