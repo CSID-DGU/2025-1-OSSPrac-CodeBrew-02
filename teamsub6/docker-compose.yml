@@ -1,0 +1,20 @@
+# docker-compose.yml
+
+version: "3.0" # docker compose 파일의 버전
+
+services: # 아래는 서비스 정의
+  frontapp: # service1의 명칭
+    # 서비스 빌드를 위한 정의 내용
+    build: ./FrontEnd
+    #--수정 image: eunjungleee/frontapp:latest
+    image: ${DOCKER_USR}/frontapp:latest
+    ports:
+      - "8081:80"
+
+  backapp: # service2의 명칭
+    # 서비스 빌드를 위한 정의 내용
+    build: ./BackEnd
+    #--수정 image: eunjungleee/backapp:latest
+    image: ${DOCKER_USR}/backapp:latest
+    ports:
+      - "5050:5050"
